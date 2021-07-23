@@ -1,0 +1,252 @@
+html {
+    font-family: 'Roboto', sans-serif;
+    background-color: #EF233C;
+}
+
+#app {
+    display: flex;
+    flex-direction: column;
+}
+
+.global-panel {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    justify-content: center;
+    width: 80%;
+}
+
+/* Barra de Rolagem */
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+
+.panel {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+    background-color: #EDF2F4;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px;
+}
+
+.profile {
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.profile span {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 80%;
+}
+
+.profile h1 {
+    margin: 5px 0;
+    padding: 0;
+}
+
+.player {
+    color: #43AA8B;
+}
+
+.enemy {
+    color: #BA1F33;
+}
+
+.profile h2 {
+    font-size: 1rem;
+    margin: 0;
+}
+
+/* Pontos */
+
+.scores {
+    display: flex;
+}
+
+.score img {
+    height: 96px;
+}
+
+.score {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #131720;
+}
+
+.score h1 {
+    font-weight: 700;
+    font-size: 1.6rem;
+}
+
+.score > span {
+    margin: 5px;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 700;
+}
+
+.score > span p {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 900;
+}
+
+.life-bar {
+    width: 90%;
+    height: 15px;
+    border: 1px solid #AAA;
+    border-radius: 50px
+}
+
+.life-bar .life {
+    background-color: #4ECC54;
+    justify-content: center;
+    display: flex;
+    height: 100%;
+    border-radius: 50px;
+}
+
+.life-bar .life.warning {
+    background-color: #F2C14E;
+}
+
+.life-bar .life.danger {
+    background-color: #EC515B;
+}
+
+/* Resultado */
+
+.result {
+    display: flex;
+    justify-content: center;
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.result .win {
+    margin: 0;
+    color: green; 
+}
+
+.result .lose {
+    margin: 0;
+    color: red;
+}
+
+/* Botões */
+
+.buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.buttons img {
+    width: 100px;
+}
+
+.btn {
+    cursor: pointer;
+    padding: 5px;
+    margin: 0 10px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0 1px 3px rgb(0, 0, 0);
+    font-size: 1rem;
+    text-transform: uppercase;
+    background-color: rgba(0, 0, 0, 0.80);
+    color: #fff;
+    padding: 20px 10px;
+}
+
+.btn:hover {
+    filter: brightness(90%);
+}
+
+/* .attack {
+    background-color: #BA1F33;
+    color: #fff;
+}
+
+.special-attack {
+    background-color: #351431;
+    color: #fff;
+}
+
+.heal {
+    background-color: #61A82A;
+    color: #fff;
+}
+
+.give-up {
+    background-color: #818479;
+    color: #fff;
+}
+
+.new-game {
+    background-color: #086788;
+    color: #fff;
+} */
+
+/* Registros de ações */
+
+.logs {
+    overflow-y: scroll;
+    height: 175px;
+}
+
+.logs ul {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.logs ul li {
+    display: flex;
+    justify-content: center;
+    font-size: 1.1rem;
+    margin: 4px 0;
+    padding: 3px 0;
+    font-weight: 700;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.hero {
+    background-color: #BA1F33;
+}
+
+.monster {
+    background-color: #43AA8B;
+}
+
+.cure {
+    background-color: #61A82A; 
+}

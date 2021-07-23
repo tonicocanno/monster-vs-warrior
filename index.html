@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Monstro VS Guerreiro</title>
+    <script src="https://unpkg.com/vue"></script>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id="app">
+        <class class="global-panel">
+            <div class="scores">
+                <div class="panel score">
+                    <div class="profile">
+                        <img src="https://img.icons8.com/fluent/96/000000/monster-face.png" alt="Imagem do Monstro">
+                        <span>
+                            <h2 class="player">MONSTRO</h2>
+                            <h1>SCP-000</h1>
+                        </span>
+                    </div>
+                    <span>
+                        NÍVEL DE VIDA
+                        <p class="player">{{ monsterLife }}</p>
+                    </span>
+                    <div class="life-bar">
+                        <div class="life" :class="{warning: monsterLife <= 50, danger: monsterLife <= 20}"
+                            :style="{width: monsterLife + '%'}"></div>
+                    </div>
+                </div>
+                <div class="panel score">
+                    <div class="profile">
+                        <img src="https://img.icons8.com/fluent/96/000000/iron-age-warrior.png" alt="Imagem do Herói">
+                        <span>
+                            <h2 class="enemy">GUERREIRO</h2>
+                            <h1>HERÓI</h1>
+                        </span>
+                    </div>
+                    <span>
+                        NÍVEL DE VIDA
+                        <p class="enemy">{{ heroLife }}</p>
+                    </span>
+                    <div class="life-bar">
+                        <div class="life" :class="{warning: heroLife <= 50, danger: heroLife <= 20}"
+                            :style="{width: heroLife + '%'}"></div>
+                    </div>
+                </div>
+            </div>
+            <div v-if="hasResult" class="panel result">
+                <p class="win" v-if="heroLife == 0 && monsterLife != 0">
+                    {{ winMessage[Math.round(Math.random() * 2)] }}
+                </p>
+                <p class="lose" v-else-if="monsterLife == 0 && heroLife == 0">Ambos cairam! :|</p>
+                <p class="lose" v-else>{{ loseMessage[Math.round(Math.random() * 2)] }}</p>
+            </div>
+            <div class="panel buttons">
+                <template v-if="running">
+                    <button @click="attack(false)" class="btn attack">
+                        Arranhão
+                    </button>
+                    <button @click="specialAttack--; attack(true)" :disabled="specialAttack == 0"
+                        class="btn special-attack">
+                        Veneno ({{ specialAttack }})
+                    </button>
+                    <button @click="cureAmount--; healAndHurt()" :disabled="cureAmount == 0" class="btn heal">
+                        Poção ({{ cureAmount }})
+                    </button>
+                    <button @click="running = false; setLog('Monstro fugiu.', 'monster')" class="btn give-up">
+                        Fugir
+                    </button>
+                </template>
+                <button v-else @click="startGame" class="btn new-game">
+                    Iniciar Jogo
+                </button>
+            </div>
+            <div v-if="logs.length" class="panel logs">
+                <ul>
+                    <li v-for="log in logs" :class="log.style" class="log">{{ log.text }}</li>
+                </ul>
+            </div>
+        </class>
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>
